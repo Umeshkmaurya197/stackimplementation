@@ -8,7 +8,7 @@ public class Node<T> {
 	public Node(T data) {
 		super();
 		this.data = data;
-		this.next = null;
+		
 	}
 	@Override
 	public String toString() {

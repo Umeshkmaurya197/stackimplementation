@@ -2,7 +2,8 @@ package com.stack.stackusecases;
 
 public class StackImplementation<T> {
 
-	Node<T> head;
+	public Node<T> head;
+
 	// push -uc1
 	public void push(T data) {
 		Node<T> newNode = new Node<>(data);
@@ -12,6 +13,28 @@ public class StackImplementation<T> {
 		}
 		newNode.next = head;
 		head = newNode;
+	}
+
+	// pop element -uc2
+	public Node<T> pop() {
+		if (head == null) {
+			System.out.println(" Stack is empty .");
+			return null;
+		}
+		Node<T> top=head;
+		head = head.next;
+		return top;
+	}
+
+	// peek element -uc2
+	public Node<T> peek() {
+		if (head == null) {
+			System.out.println(" Stack is empty  ");
+			return null;
+		}
+		Node<T> node = head;
+		return node;
+
 	}
 
 	public void printStack() {
@@ -25,7 +48,6 @@ public class StackImplementation<T> {
 			currentNode = currentNode.next;
 		}
 		System.out.println(" ");
-
 	}
 
 	public static void main(String[] args) {
@@ -33,7 +55,11 @@ public class StackImplementation<T> {
 		stackImplementation.push(70);
 		stackImplementation.push(30);
 		stackImplementation.push(56);
-		stackImplementation.printStack();
-	}
+		stackImplementation.printStack(); // 56 -> 30 -> 70 ->
 
+		stackImplementation.pop();
+		stackImplementation.printStack(); // 30 -> 70 ->
+
+		System.out.println("Peek element is : " + stackImplementation.peek()); // 30
+	}
 }
